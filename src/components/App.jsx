@@ -55,10 +55,6 @@ class App extends React.Component {
 
   async componentDidUpdate(prevProps, prevState) {
     const { page, query } = this.state;
-    console.log(prevState.page);
-    console.log(page);
-    console.log(query);
-
     if (prevState.page !== page || prevState.query !== query) {
       await this.fetchData(
         this.state.query,

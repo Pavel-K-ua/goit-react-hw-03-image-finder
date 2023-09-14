@@ -4,7 +4,7 @@ import { ImageGalleryUl } from './ImageGallery.Styled';
 
 export const ImageGallery = ({ dataArr, handleOpenModal }) => {
   return (
-    <ImageGalleryUl class="gallery">
+    <ImageGalleryUl>
       {dataArr.map(item => (
         <ImageGalleryItem
           key={item.id}

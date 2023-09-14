@@ -15,16 +15,16 @@ export class SearchBar extends React.Component {
   };
   render() {
     return (
-      <Header class="searchbar">
-        <Form onSubmit={this.handleSubmit} class="form">
-          <Button type="submit" class="button">
-            <Span class="button-label">Search</Span>
+      <Header >
+        <Form onSubmit={this.handleSubmit} >
+          <Button type="submit" >
+            <Span >Search</Span>
           </Button>
 
           <Input
             value={this.state.query}
             onChange={this.handleChange}
-            class="input"
+            
             type="text"
             autoComplete="off"
             autoFocus

@@ -8,7 +8,7 @@ export const ImageGalleryItem = ({
   handleOpenModal,
 }) => {
   return (
-    <GalleryItemLi class="gallery-item">
+    <GalleryItemLi>
       <GalleryItemImg
         src={webformatURL}
         alt={id}
