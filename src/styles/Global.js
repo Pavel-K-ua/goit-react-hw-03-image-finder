@@ -1,8 +1,20 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const Global = createGlobalStyle`
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 body {
-  background-color: #f6f8fa;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  color: #212121;
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1,
@@ -53,6 +65,9 @@ img {
 
 html {
   scroll-behavior: smooth;
+  box-sizing: border-box;
+  width: 100vw;
+  overflow-x: hidden;
 } 
 
 `;
