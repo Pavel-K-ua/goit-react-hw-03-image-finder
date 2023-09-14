@@ -10,5 +10,5 @@ export const getImgs = async (q, page, per_page) => {
     },
   });
   // console.log(data.hits);
-  return data.hits;
+  return data;
 };

@@ -17,18 +17,25 @@ class App extends React.Component {
     currentImg: null,
     currentId: null,
     loading: false,
+    maxPages: null,
   };
 
   fetchData = async () => {
     this.setState({ loading: true });
+    // const
     try {
-      const fetchArr = await getImgs(
+      const fetch = await getImgs(
         this.state.query,
         this.state.page,
         this.state.per_page
       );
+      const fetchArr = fetch.hits;
+
+      console.log(Math.floor(fetch.totalHits / this.state.per_page));
       this.setState(prev => ({
         dataArr: [...prev.dataArr, ...fetchArr],
+        maxPages: Math.floor(fetch.totalHits / this.state.per_page),
+        // maxImgs,
         // page: (prev.page += 1),
       }));
     } catch (error) {
@@ -51,8 +58,9 @@ class App extends React.Component {
     console.log(prevState.page);
     console.log(page);
     console.log(query);
+
     if (prevState.page !== page || prevState.query !== query) {
-      const newArr = await this.fetchData(
+      await this.fetchData(
         this.state.query,
         this.state.page,
         this.state.per_page
@@ -66,7 +74,7 @@ class App extends React.Component {
 
   onLoadMore = () => {
     this.setState(prev => ({
-      page: (prev.page += 1),
+      page: prev.page + 1,
     }));
   };
 
@@ -78,8 +86,16 @@ class App extends React.Component {
     }));
   };
   render() {
-    const { query, dataArr, currentImg, currentId, isOpen, loading } =
-      this.state;
+    const {
+      query,
+      dataArr,
+      currentImg,
+      currentId,
+      isOpen,
+      loading,
+      maxPages,
+      page,
+    } = this.state;
     return (
       <>
         <SearchBar onChangeQuery={this.handleChangeQuery} />
@@ -90,7 +106,9 @@ class App extends React.Component {
           dataArr={dataArr}
           handleOpenModal={this.handleOpenModal}
         />
-        {dataArr.length && <Button onLoadMore={this.onLoadMore} />}
+        {dataArr.length && page < maxPages ? (
+          <Button onLoadMore={this.onLoadMore} />
+        ) : null}
         {/* <Loader /> */}
         {isOpen && (
           <Modal close={this.handleOpenModal}>
