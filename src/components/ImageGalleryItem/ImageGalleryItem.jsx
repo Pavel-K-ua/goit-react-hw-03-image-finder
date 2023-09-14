@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  GalleryItemLi,
-  GalleryItemImg,
-  handleOpenModal,
-} from './ImageGalleryItem.Styled';
+import { GalleryItemLi, GalleryItemImg } from './ImageGalleryItem.Styled';
 
 export const ImageGalleryItem = ({
   id,

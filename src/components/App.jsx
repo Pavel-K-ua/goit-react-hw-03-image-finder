@@ -54,7 +54,7 @@ class App extends React.Component {
   }
 
   async componentDidUpdate(prevProps, prevState) {
-    const { page, query, dataArr } = this.state;
+    const { page, query } = this.state;
     console.log(prevState.page);
     console.log(page);
     console.log(query);
@@ -86,16 +86,8 @@ class App extends React.Component {
     }));
   };
   render() {
-    const {
-      query,
-      dataArr,
-      currentImg,
-      currentId,
-      isOpen,
-      loading,
-      maxPages,
-      page,
-    } = this.state;
+    const { dataArr, currentImg, currentId, isOpen, loading, maxPages, page } =
+      this.state;
     return (
       <>
         <SearchBar onChangeQuery={this.handleChangeQuery} />
