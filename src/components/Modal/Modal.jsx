@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { ModalStyled, OverlayStyled } from './Modal.Styled';
+import { PropTypes } from 'prop-types';
 
 export class Modal extends Component {
   onOverlayClick = e => {
@@ -32,3 +33,7 @@ export class Modal extends Component {
     );
   }
 }
+
+Modal.propTypes = {
+  close: PropTypes.func,
+};

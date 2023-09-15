@@ -1,5 +1,6 @@
 import React from 'react';
 import { GalleryItemLi, GalleryItemImg } from './ImageGalleryItem.Styled';
+import { PropTypes } from 'prop-types';
 
 export const ImageGalleryItem = ({
   id,
@@ -16,4 +17,11 @@ export const ImageGalleryItem = ({
       />
     </GalleryItemLi>
   );
+};
+
+ImageGalleryItem.propTypes = {
+  id: PropTypes.string,
+  webformatURL: PropTypes.string,
+  largeImageURL: PropTypes.string,
+  handleOpenModal: PropTypes.func,
 };
